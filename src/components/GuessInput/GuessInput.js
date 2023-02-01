@@ -8,22 +8,22 @@ import { useState } from "react";
 
 function GuessInput({commitGuess}) {
 
-  const [guess, setGuess] = useState('')
+  const [inputValue, setInputValue] = useState('')
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (guess.length !== 5) {
+    if (inputValue.length !== 5) {
       alert('Please enter exactly 5 characters');
       return;
     }
 
-    commitGuess(guess.toUpperCase())
-    setGuess('');
+    commitGuess(inputValue.toUpperCase())
+    setInputValue('');
   }
 
   const handleChange = event => {
-    setGuess(event.target.value);
+    setInputValue(event.target.value);
   };
 
   return (      
@@ -36,7 +36,7 @@ function GuessInput({commitGuess}) {
       style={{textTransform: 'uppercase'}}
       id="guess-input" 
       type="text" 
-      value={guess}
+      value={inputValue}
       onChange={ handleChange }
       required
       minLength={5}
